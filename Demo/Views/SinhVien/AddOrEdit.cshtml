@@ -1,0 +1,88 @@
+﻿@model SinhVienViewModel
+
+@{
+}
+
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <p class="mt-0 mb-2 fw-semibold text-dark font-18 text-center">@ViewBag.RenderedHtmlTitle</p>
+            <form asp-action="AddOrEdit" asp-controller="SinhVien" asp-route-id="@Model.uID">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="uID" value="@Model.uID" />
+                <div>
+                    <!--Họ tên-->
+                    <div class="form-group mb-2">
+                        <label asp-for="uHoTen" class="control-label"></label>
+                        <div class="input-group mb-2">
+                            <input asp-for="uHoTen" class="form-control" type="text" placeholder="Nhập họ và tên" value="@Model.uHoTen" />
+                        </div>
+                        <span asp-validation-for="uHoTen" class="text-danger"></span>
+                    </div><!--end form-group-->
+
+                    <!--Mã sinh viên-->
+                    <div class="form-group mb-2">
+                        <label asp-for="uMaSv" class="control-label"></label>
+                        <div class="input-group mb-2">
+                            <input asp-for="uMaSv" class="form-control" type="text" placeholder="Nhập mã sinh viên" value="@Model.uMaSv" />
+                        </div>
+                        <span asp-validation-for="uMaSv" class="text-danger"></span>
+                    </div><!--end form-group-->
+                    
+                    <!--Giới tính-->
+                    <div class="form-group mb-2">
+                        <div class="form-check">
+                            <input asp-for="uGioiTinh" class="form-check-input" type="checkbox"
+                                   onchange="$('#uGioiTinh').val(this.checked)" value="@Model.uGioiTinh">
+                            <label asp-for="uGioiTinh" class="form-check-label"></label>
+                        </div>
+                    </div><!--end form-group-->
+
+                    <!--Ngày sinh-->
+                    <div class="form-group mb-2">
+                        <label asp-for="uNgaySinh" class="control-label"></label>
+                        <div class="input-group mb-2">
+                            <input asp-for="uNgaySinh" type="date" class="form-control" placeholder="Chọn ngày sinh" value="@Model.uNgaySinh" />
+                        </div>
+                        <span asp-validation-for="uNgaySinh" class="text-danger"></span>
+                    </div><!--end form-group-->
+
+                    <!--Số điện thoại-->
+                    <div class="form-group mb-2">
+                        <label asp-for="uSoDienThoai" class="control-label"></label>
+                        <div class="input-group mb-2">
+                            <input asp-for="uSoDienThoai" type="number" class="form-control" placeholder="Nhập số điện thoại" value="@Model.uSoDienThoai" />
+                        </div>
+                        <span asp-validation-for="uSoDienThoai" class="text-danger"></span>
+                    </div><!--end form-group-->
+                    
+                    <!--Địa chỉ-->
+                    <div class="form-group mb-2">
+                        <label asp-for="uDiaChi" class="control-label"></label>
+                        <div class="input-group mb-2">
+                            <input asp-for="uDiaChi" type="text" class="form-control" placeholder="Nhập địa chỉ" rows="3" value="@Model.uDiaChi" />
+                        </div>
+                        <span asp-validation-for="uDiaChi" class="text-danger"></span>
+                    </div><!--end form-group-->
+
+                    <div class="form-group">
+                        <br />
+                        <div class="col-md-12 offset-md-5">
+                            <div class="d-flex">
+                                <div style="margin-right:10px;">
+                                    <input type="submit" value="Submit" class="btn btn-primary btn-block" style="width:80px" />
+                                </div>
+                                <div>
+                                    <a asp-controller="SinhVien" asp-action="Index" class="btn btn-success text-white"><i class="fe-log-out"></i> Close</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div> <!-- end card-->
+</div>
+
+@section scripts{
+}
